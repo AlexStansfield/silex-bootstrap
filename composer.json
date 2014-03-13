@@ -1,0 +1,25 @@
+{
+    "name": "Silex Bootstrap",
+    "description": "For starting silex projects",
+    "authors": [
+        {
+            "name": "Alex Stansfield",
+            "email": "alex.stansfield@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "silex/silex": "1.1.*",
+        "doctrine/dbal": "2.4.*",
+        "monolog/monolog": "1.7.*",
+        "deralex/yaml-config-service-provider": "1.0.*@dev",
+        "twig/twig": "1.15.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "mockery/mockery": "0.9.*"
+    },
+    "autoload": {
+        "psr-0": {"AlexStansfield": "src/"}
+    }
+}
