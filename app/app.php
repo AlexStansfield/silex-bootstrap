@@ -10,13 +10,19 @@ use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\MonologServiceProvider;
 use Symfony\Component\HttpFoundation\Response;
 
-$app = new Application();
+$env = getenv('APP_ENV') ?: 'dev';
+$options = array(
+    'dir.root' => __DIR__,
+    'dir.config' => __DIR__ . '/config',
+    'dir.logs' => __DIR__ . '/logs'
+);
+
+$app = new Application($options);
 
 //-- Register Providers
 
 // Configuration file
-$env = getenv('APP_ENV') ?: 'dev';
-$app->register(new YamlConfigServiceProvider(__DIR__ . '/config/' . $env . '.yml'));
+$app->register(new YamlConfigServiceProvider($app['dir.config'] . "/$env.yml"));
 
 // Set debug
 $app['debug'] = $app['config']['debug'];
@@ -42,9 +48,6 @@ $app->register(new TwigServiceProvider(), array(
 // Start the Session
 $app['session']->start();
 
-// Setup Routes
-$app->get('/', 'Project\Controllers\IndexController::indexAction');
-
 // Setup the error handling
 $app->error(function (\Exception $e, $code) use ($app) {
     // If we're in debug mode than fall back to debug error handler
@@ -63,6 +66,10 @@ $app->error(function (\Exception $e, $code) use ($app) {
 
     return new Response($message);
 });
+
+
+//-- Setup Routes
+$app->get('/', 'Project\Controllers\IndexController::indexAction');
 
 // Run the App
 $app->run();

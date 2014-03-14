@@ -1,3 +1,5 @@
+debug:	false;
+
 doctrine:
     dbal:
         driver:   pdo_sqlite
