@@ -1,4 +1,4 @@
-debug:	false;
+debug:	false
 
 doctrine:
     dbal:
@@ -6,3 +6,6 @@ doctrine:
         user:
         password:
         path:     ""
+
+monolog:
+    level: 100

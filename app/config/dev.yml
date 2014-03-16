@@ -1,2 +1,4 @@
 imports:
     - { resource: common.yml }
+
+debug:  true

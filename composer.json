@@ -20,6 +20,6 @@
         "mockery/mockery": "0.9.*"
     },
     "autoload": {
-        "psr-0": {"AlexStansfield": "src/"}
+        "psr-4": {"AlexStansfield\\": "src/"}
     }
 }

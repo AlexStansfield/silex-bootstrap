@@ -29,7 +29,8 @@ $app['debug'] = $app['config']['debug'];
 
 // Logging
 $app->register(new MonologServiceProvider(), array(
-    'monolog.logfile' => __DIR__.'/logs/' . $env . '.log',
+    'monolog.logfile' => $app['dir.logs'] . "/$env.log",
+    'monolog.level' => $app['config']['monolog']['level']
 ));
 
 // Sessions
@@ -69,7 +70,7 @@ $app->error(function (\Exception $e, $code) use ($app) {
 
 
 //-- Setup Routes
-$app->get('/', 'Project\Controllers\IndexController::indexAction');
+$app->get('/', 'AlexStansfield\Project\Controllers\IndexController::indexAction');
 
 // Run the App
 $app->run();

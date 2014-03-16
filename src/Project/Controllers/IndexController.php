@@ -9,6 +9,6 @@ class IndexController
 {
     public function indexAction(Request $request, Application $app)
     {
-    	return;
+    	return $app['twig']->render('index.twig');
     }
 }

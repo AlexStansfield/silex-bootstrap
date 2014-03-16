@@ -1,2 +1,5 @@
 imports:
     - { resource: common.yml }
+
+monolog:
+    level: 400
