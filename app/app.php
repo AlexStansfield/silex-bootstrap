@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/bootstrap.php';
+require_once __DIR__ . '/bootstrap.php';
 
 use Silex\Application;
 use DerAlex\Silex\YamlConfigServiceProvider;
@@ -43,7 +43,7 @@ $app->register(new DoctrineServiceProvider(), array(
 
 // Twig Templates
 $app->register(new TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/../src/Project/Views',
+    'twig.path' => __DIR__ . '/../src/Project/Views',
 ));
 
 // Start the Session
